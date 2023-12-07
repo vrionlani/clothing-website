@@ -197,7 +197,17 @@
       margin: 10px;
       border-radius: 50%
 }   
-
+.title{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+    color:#424144;
+    
+}
 
 
 
