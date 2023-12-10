@@ -1,40 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-      <div class="wrapper">
-        <form action="">
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="loginForm" action="">
         <h1>Login</h1>
         <div class="input-box">
-            <input type="text" placeholder="Username"
-            required>
-            <i class='bx bxs-user'></i>
-        </div> 
+          <input id="username" type="text" placeholder="Username" required />
+          <i class="bx bxs-user"></i>
+        </div>
         <div class="input-box">
-            <input type="password" 
-            placeholder="Password" required>
-            <i class='bx bxs-lock-alt' ></i>
+          <input
+            id="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <i class="bx bxs-lock-alt"></i>
         </div>
 
+
+
+
         <div class="remember-forgot">
-          <label><input type="checkbox"> Remember me</label>
-          <a href="#">Forgot password?</a> 
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#">Forgot password?</a>
         </div>
+
+
+
 
         <button type="submit" class="btn">Login</button>
 
-          <div class="register-link"> 
-           <p>Don't have an account? <a
-            href="#">Register</a></p>
-           </div>   
-        </form>
-      </div>
-    
-</body>
+
+
+
+        <div class="register-link">
+          <p>Don't have an account? <a href="Register form.html">Register</a></p>
+        </div>
+      </form>
+    </div>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+
+
+
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+
+
+
+          var errorMessage = "";
+
+
+
+
+          if (!username || !password) {
+            errorMessage += "Both username and password are required.\n";
+          }
+
+
+
+
+          if (password.length < 8) {
+            errorMessage += "Password must be more than 8 characters.\n";
+          }
+
+
+
+
+          if (errorMessage) {
+            alert(errorMessage);
+            return false;
+          }
+
+
+
+
+          alert("Login successful!");
+          // Here, you would typically handle the login logic or submission
+        });
+    </script>
+  </body>
 </html>

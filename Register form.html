@@ -1,54 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register form</title>
-    <link rel="stylesheet" href="style3.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
+    <link rel="stylesheet" href="style3.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="wrapper">
-    <form action="">
-       <h1>Registration</h1>
-          
-       <div class="input-box">
-        <div class="input-field">
-            <input type="text" placeholder="Full Name" required>
-            <i class='bx bxs-user'></i>
-           </div>
-          <div class="input-field">
-          <input type="text" placeholder="Username" required>
-          <i class='bx bxs-user'></i>
-         </div>
-      </div>
+      <form id="registrationForm" action="">
+        <h1>Registration</h1>
 
-      <div class="input-box">
-        <div class="input-field">
-            <input type="email" placeholder="Email" required>
-            <i class='bx bx-envelope'></i>
-           </div>
+
+        <div class="input-box">
           <div class="input-field">
-          <input type="text" placeholder="Phone Number" required>
-          <i class='bx bxs-phone'></i>
+            <input id="fullName" type="text" placeholder="Full Name" required />
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-field">
+            <input id="username" type="text" placeholder="Username" required />
+            <i class="bx bxs-user"></i>
+          </div>
         </div>
-    </div>
-    <div class="input-box">
-        <div class="input-field">
-            <input type="password" placeholder="Password" required>
-            <i class='bx bxs-lock-alt'></i>
-           </div>
+
+
+        <div class="input-box">
           <div class="input-field">
-          <input type="password" placeholder="Confirm Password" required>
-          <i class='bx bxs-lock-alt'></i>
-         </div>
-      </div>
-      <label><input type="checkbox">I hereby declare that the above information providedis true and correct</label>
-      <button type="submit" class="btn">Register</button>
-    </form>
+            <input id="email" type="email" placeholder="Email" required />
+            <i class="bx bx-envelope"></i>
+          </div>
+          <div class="input-field">
+            <input
+              id="phoneNumber"
+              type="text"
+              placeholder="Phone Number"
+              required
+            />
+            <i class="bx bxs-phone"></i>
+          </div>
+        </div>
+        <div class="input-box">
+          <div class="input-field">
+            <input
+              id="password"
+              type="password"
+              placeholder="Password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+          <div class="input-field">
+            <input
+              id="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              required
+            />
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+        </div>
+        <label
+          ><input type="checkbox" id="termsCheckbox" />I hereby declare that the
+          above information provided is true and correct</label
+        >
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-</div>
 
-</body>
+          var fullName = document.getElementById("fullName").value;
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+          var confirmPassword =
+            document.getElementById("confirmPassword").value;
+          var termsCheckbox = document.getElementById("termsCheckbox").checked;
+
+
+          var errorMessage = "";
+
+
+          if (!fullName || !username || !password || !confirmPassword) {
+            errorMessage += "All fields are required.\n";
+          }
+
+
+          if (password.length < 8) {
+            errorMessage += "Password must be more than 8 characters.\n";
+          }
+
+
+          if (password !== confirmPassword) {
+            errorMessage += "Passwords do not match.\n";
+          }
+
+
+          if (!termsCheckbox) {
+            errorMessage += "You must agree to the terms.\n";
+          }
+
+
+          if (errorMessage) {
+            alert(errorMessage);
+            return false;
+          }
+
+
+          alert("Registration successful!");
+        });
+    </script>
+  </body>
 </html>
+
